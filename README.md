@@ -4,15 +4,8 @@
 
 ###
 
-<div align="center">
-  <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="linkedin logo"  />
-  <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="youtube logo"  />
-  <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="twitter logo"  />
-</div>
 
-###
-
-<h1 align="center">hey there 👋</h1>
+<h1 align="center">Un saludo... 👋</h1>
 
 ###
 
@@ -20,7 +13,7 @@
 
 ###
 
-<p align="left">Este proyecto académico quire mostrar el manejo de React haciendo uso de un Back de Firebase<br><br>- 🔭 Crear usuarios<br>- 📚 Listar Usuarios<br>- ⚡ Editar usuarios<br>- 🔭 Eliminar Usuarios<br>- 🔭 Subir archivos e imagenes</p>
+<p align="left">Este proyecto académico queire mostrar el manejo de React en sus hooks basicos como useSate, useEffect, al mismo tiempo trabajando con un back consntruido en Firebase, utilizando servicios como el Firestore y el Storage<br><br>- 🔭 Crear usuarios<br>- 📚 Listar Usuarios<br>- ⚡ Editar usuarios<br>- 🔭 Eliminar Usuarios<br>- 🔭 Subir archivos e imagenes</p>
 
 ###
 
@@ -43,9 +36,5 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
 </div>
-
-###
-
-<h3 align="left">🔥   My Stats :</h3>
 
 ###
