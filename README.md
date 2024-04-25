@@ -13,7 +13,7 @@
 
 ###
 
-<p align="left">Este proyecto académico queire mostrar el manejo de React en sus hooks basicos como useSate, useEffect, al mismo tiempo trabajando con un back consntruido en Firebase, utilizando servicios como el Firestore y el Storage<br><br>- 🔭 Crear usuarios<br>- 📚 Listar Usuarios<br>- ⚡ Editar usuarios<br>- 🔭 Eliminar Usuarios<br>- 🔭 Subir archivos e imagenes</p>
+<p align="left">Este proyecto académico queire mostrar el manejo de React en sus hooks basicos como useSate, useEffect, al mismo tiempo trabajando con un back consntruido en Firebase, utilizando servicios como el Firestore y el Storage<br><br>- 🔭 Crear usuarios<br>- 📚 Listar Usuarios<br>- ⚡ Editar usuarios<br>- 🔭 Eliminar Usuarios<br>- 🔭 Subir archivos e imagenes<br>-⚡ Registro de usuarios<br>-⚡ Inicio de sesion</p>
 
 ###
 
