@@ -1,7 +1,18 @@
 import React from "react";
 import "./Login.css";
+import { connDatabase } from "../../config/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 
 const Login = () => {
+  
+  async function getUsuarios(){
+    let collectionUsuarios = collection(connDatabase, 'usuarios')
+    let resultado = await getDocs(collectionUsuarios)
+    console.log(resultado)
+  }
+
+  getUsuarios()
+
   return (
     <div class="login-page">
       <div class="form">
