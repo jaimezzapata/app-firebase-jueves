@@ -8,7 +8,7 @@ const Login = () => {
   async function getUsuarios(){
     let collectionUsuarios = collection(connDatabase, 'usuarios')
     let resultado = await getDocs(collectionUsuarios)
-    console.log(resultado)
+    console.log(resultado.docs.map((doc)=>{console.log(doc.data())}))
   }
 
   getUsuarios()
