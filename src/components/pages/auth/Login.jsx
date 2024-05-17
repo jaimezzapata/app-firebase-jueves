@@ -1,34 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { connDatabase } from "../../config/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 
 const Login = () => {
-  
-  async function getUsuarios(){
-    let collectionUsuarios = collection(connDatabase, 'usuarios')
-    let resultado = await getDocs(collectionUsuarios)
-    console.log(resultado.docs.map((doc)=>{console.log(doc.data())}))
+  const [usuarios, setUsuarios] = useState([]);
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  async function getUsuarios() {
+    let collectionUsuarios = collection(connDatabase, "usuarios");
+    let resultado = await getDocs(collectionUsuarios);
+    setUsuarios(resultado.docs.map((doc) => ({ ...doc.data() })));
+    console.log(resultado.docs.map((doc) => ({ ...doc.data() })));
   }
-
-  getUsuarios()
-
+  useEffect(() => {
+    getUsuarios();
+  }, []);
+  const buscarUsuario = () => {
+    let estado = usuarios.some(
+      (usuario) => usuario.user === user && usuario.password === password
+    );
+    return estado;
+  };
+  const iniciarSesion = () => {
+    if (buscarUsuario()) {
+      console.log("Bienvenido....");
+    } else {
+      console.log("Error de credenciales");
+    }
+  };
   return (
     <div class="login-page">
       <div class="form">
-        <form class="register-form">
-          <input type="text" placeholder="name" />
-          <input type="password" placeholder="password" />
-          <input type="text" placeholder="email address" />
-          <button>create</button>
-          <p class="message">
-            Already registered? <a href="#">Sign In</a>
-          </p>
-        </form>
         <form class="login-form">
-          <input type="text" placeholder="username" />
-          <input type="password" placeholder="password" />
-          <button type="button">login</button>
+          <input
+            onChange={(e) => setUser(e.target.value)}
+            type="text"
+            placeholder="username"
+          />
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            placeholder="password"
+          />
+          <button onClick={iniciarSesion} type="button">
+            login
+          </button>
           <p class="message">
             Not registered? <a href="#">Create an account</a>
           </p>
