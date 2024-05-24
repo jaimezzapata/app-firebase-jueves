@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { connDatabase } from "../../config/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [usuarios, setUsuarios] = useState([]);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  let redireccion = useNavigate();
+
   async function getUsuarios() {
     let collectionUsuarios = collection(connDatabase, "usuarios");
     let resultado = await getDocs(collectionUsuarios);
@@ -24,9 +28,18 @@ const Login = () => {
   };
   const iniciarSesion = () => {
     if (buscarUsuario()) {
-      console.log("Bienvenido....");
+      Swal.fire({
+        title: "Bienvenido...",
+        text: "Será redireccionado al Home",
+        icon: "success",
+      });
+      redireccion("/home");
     } else {
-      console.log("Error de credenciales");
+      Swal.fire({
+        title: "Error",
+        text: "Usuario y/o contraseña incorrecto",
+        icon: "error",
+      });
     }
   };
   return (
