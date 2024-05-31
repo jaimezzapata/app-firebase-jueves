@@ -5,10 +5,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/pages/auth/Login";
 import Home from "./components/pages/Home";
 import ListadoUsuarios from "./components/pages/users/ListadoUsuarios";
+import Registro from "./components/pages/auth/Registro";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
+  },
+  {
+    path: "/registro",
+    element: <Registro />,
   },
   {
     path: "/home",

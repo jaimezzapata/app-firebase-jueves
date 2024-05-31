@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { connDatabase } from "../../config/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Registro = () => {
@@ -27,6 +27,20 @@ const Registro = () => {
     let estado = usuarios.some((usuario) => usuario.user === user);
     return estado;
   };
+
+  function confirmar() {}
+
+  async function crearUsuario() {
+    let nuevoUsuario = {
+      user,
+      password,
+      email,
+      city,
+      name,
+    };
+    console.log(nuevoUsuario);
+  }
+
   const registrarUsuario = () => {
     if (!buscarUsuario()) {
       Swal.fire({
@@ -72,11 +86,11 @@ const Registro = () => {
             type="text"
             placeholder="City"
           />
-          <button onClick={iniciarSesion} type="button">
-            login
+          <button onClick={registrarUsuario} type="button">
+            Registro
           </button>
           <p class="message">
-            Not registered? <a href="#">Create an account</a>
+            Ya tiene cuenta? <Link to="/">Login</Link>
           </p>
         </form>
       </div>
