@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { connDatabase } from "../../config/firebaseConfig";
-import { collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -11,7 +11,7 @@ const Registro = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [city, setCity] = useState("");
+  const [img, setImg] = useState("");
   let redireccion = useNavigate();
 
   async function getUsuarios() {
@@ -28,7 +28,26 @@ const Registro = () => {
     return estado;
   };
 
-  function confirmar() {}
+  function confirmar() {
+    Swal.fire({
+      title: "Esta seguro que se quiere registrar?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, registrarme",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        crearUsuario();
+        Swal.fire({
+          title: "Registrado",
+          text: "Usuarios registrado correctamente...",
+          icon: "success",
+        });
+        redireccion("/");
+      }
+    });
+  }
 
   async function crearUsuario() {
     let nuevoUsuario = {
@@ -38,17 +57,14 @@ const Registro = () => {
       city,
       name,
     };
+    let collectionUsuario = collection(connDatabase, "usuarios");
+    await addDoc(collectionUsuario, nuevoUsuario);
     console.log(nuevoUsuario);
   }
 
   const registrarUsuario = () => {
     if (!buscarUsuario()) {
-      Swal.fire({
-        title: "Usuario registrado correctamente",
-        text: "Será redireccionado al login",
-        icon: "success",
-      });
-      redireccion("/");
+      confirmar();
     } else {
       Swal.fire({
         title: "Error",
@@ -81,11 +97,7 @@ const Registro = () => {
             type="email"
             placeholder="Email"
           />
-          <input
-            onChange={(e) => setCity(e.target.value)}
-            type="text"
-            placeholder="City"
-          />
+          <input onChange={(e) => setImg(e.target.value)} type="file" />
           <button onClick={registrarUsuario} type="button">
             Registro
           </button>
