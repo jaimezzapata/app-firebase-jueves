@@ -6,6 +6,7 @@ import Login from "./components/pages/auth/Login";
 import Home from "./components/pages/Home";
 import ListadoUsuarios from "./components/pages/users/ListadoUsuarios";
 import Registro from "./components/pages/auth/Registro";
+import EditarUsuarios from "./components/pages/users/EditarUsuarios";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/listado-usuarios",
     element: <ListadoUsuarios />,
+  },
+  {
+    path: "/editar",
+    element: <EditarUsuarios />,
   },
 ]);
 
