@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { connDatabase } from "../../config/firebaseConfig";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ListadoUsuarios = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -29,7 +30,7 @@ const ListadoUsuarios = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        confirmar(id)
+        confirmar(id);
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
@@ -58,7 +59,9 @@ const ListadoUsuarios = () => {
               <p>Ciudad: {element.city}</p>
             </section>
             <div>
-              <button>Editar</button>
+              <button>
+                <Link to={"/editar/" + element.id}>Editar</Link>
+              </button>
               <button onClick={() => eliminarUsuario(element.id)}>
                 Eliminar
               </button>

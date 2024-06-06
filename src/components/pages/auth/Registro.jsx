@@ -54,10 +54,10 @@ const Registro = () => {
       user,
       password,
       email,
-      city,
       name,
     };
     let collectionUsuario = collection(connDatabase, "usuarios");
+    console.log(collectionUsuario)
     await addDoc(collectionUsuario, nuevoUsuario);
     console.log(nuevoUsuario);
   }
