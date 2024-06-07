@@ -57,6 +57,7 @@ const ListadoUsuarios = () => {
               <p>Usuario: {element.user}</p>
               <p>Correo: {element.email}</p>
               <p>Ciudad: {element.city}</p>
+              <img src={element.imgServer} alt="" />
             </section>
             <div>
               <button>
